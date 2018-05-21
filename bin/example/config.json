@@ -1,21 +1,16 @@
 {  
-   "ServerModule":{  
+   "ServerTrackingModule":{  
       "updateInterval":40000,
       "Servers":[  
          {  
             "Item1":"US",
-            "Item2":"70.42.74.31",
+            "Item2":"tf2mapsus.game.nfoservers.com",
             "Item3":27015
          },
          {  
             "Item1":"EU",
             "Item2":"31.186.251.51",
             "Item3":27015
-         },
-         {  
-            "Item1":"AU",
-            "Item2":"103.231.91.60",
-            "Item3":27035
          }
       ]
    },
@@ -39,7 +34,7 @@
    },
    "IdentityModule":{ 
 	"DefaultUsername":"VBot",
-	"DefaultStatus":"http://vbot.site",
+	"DefaultStatus":"http://vbot.website",
 	"UseStatus":true 
 
    },
@@ -60,8 +55,11 @@
       "Address":"http://168.235.90.109:80/",
       "CSSPath":"Website/stylesheet.css/"
    },
-   "ServerListHolder":{  
+   "TrackingServerListHolder":{  
       "ListConfigs":[  
       ]
+   },
+   "WebServerHostingModule":{
+      "Address":"http://168.235.90.109:80/"
    }
 }

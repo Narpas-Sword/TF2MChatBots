@@ -25,7 +25,7 @@ namespace SteamBotLite
         private static void Main(string[] args)
         {
             
-            Console.WriteLine("RUNNING");
+            Console.WriteLine("===RUNNING===");
 
             
             ConsoleUserHandler consolehandler = new ConsoleUserHandler();
@@ -35,12 +35,14 @@ namespace SteamBotLite
             List<UserHandler> user_handlers = new List<UserHandler>() {
                 consolehandler, MediaHandler, vbot_instance, ghostchecker
             };
-            
+
+            Console.WriteLine("---Loading Interfaces---");
             HttpInterface Test_Bot = new HttpInterface();
             SteamAccountVBot SteamPlatformInterface = new SteamAccountVBot();
             List<ApplicationInterface> services = new List<ApplicationInterface>() {
                 SteamPlatformInterface, Test_Bot
             };
+            Console.WriteLine("---Interfaces Loaded Successfully---");
 
             foreach(UserHandler handler in user_handlers)
             {

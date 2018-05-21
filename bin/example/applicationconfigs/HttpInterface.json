@@ -1,0 +1,16 @@
+{  
+"Token":"PUT API TOKEN HERE",
+"PrivateMsgs":"",
+"Broadcasts":"",
+"Admins":"",
+"Channels":{"Test1":"Test2"},
+"WebHook":"http://vbot.website",
+"Whitelist":[],
+"BlackList":[],
+"WhitelistOnly":false,	
+"UseWhitelistAsBroadCastChatrooms":false
+}
+
+
+
+

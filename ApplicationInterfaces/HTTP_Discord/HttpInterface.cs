@@ -28,7 +28,7 @@ namespace SteamBotLite.ApplicationInterfaces.HTTP_Discord
             Admins_Roles = JsonConvert.DeserializeObject<List<string>>(config["Admins"].ToString());
             channels = JsonConvert.DeserializeObject<Dictionary<string,string>>(config["Channels"].ToString());
             Last_Message = new Dictionary<string, string>();
-
+            
             foreach (KeyValuePair<string,string> chatroom in channels)
             {
                 GetLatestMessages(chatroom.Key);

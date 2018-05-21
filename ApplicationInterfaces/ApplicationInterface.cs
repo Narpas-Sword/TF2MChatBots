@@ -23,6 +23,9 @@ namespace SteamBotLite
         {
             this.config = JsonConvert.DeserializeObject<Dictionary<string, object>>(System.IO.File.ReadAllText(Path.Combine("applicationconfigs", this.GetType().Name.ToString() + ".json")));
 
+            string ThisObject = this.GetType().Name.ToString();
+            Console.WriteLine("Loading interface {0}", ThisObject);
+
             Whitelist = JsonConvert.DeserializeObject<List<string>>(config["Whitelist"].ToString());
             Blacklist = JsonConvert.DeserializeObject<List<string>>(config["BlackList"].ToString());
             WhitelistOnly = bool.Parse(config["WhitelistOnly"].ToString());

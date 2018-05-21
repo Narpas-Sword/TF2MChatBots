@@ -1,4 +1,6 @@
-﻿namespace SteamBotLite
+﻿using System;
+
+namespace SteamBotLite
 {
     internal partial class WebServerHostingModule
     {

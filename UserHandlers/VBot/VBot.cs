@@ -45,8 +45,8 @@ namespace SteamBotLite
         public VBot()
         {
             
-            Console.WriteLine("VBot Initialised");
-            Console.WriteLine("Loading modules and stuff");
+            Console.WriteLine("===VBot Initialised===");
+            Console.WriteLine("---Loading modules and stuff---");
             ModuleList = new List<BaseModule>();
             MapChangeEventListiners = new List<ServerMapChangeListiner>();
             HTMLParsers = new List<IHTMLFileFromArrayPasser>();
@@ -67,7 +67,7 @@ namespace SteamBotLite
             //motdModule = new MotdModule(this, jsconfig);
             //countdownmodule = new CountDownModule(this, jsconfig);
 
-            Console.WriteLine("Modules loaded and ModuleList intitialised");
+            Console.WriteLine("---Modules loaded and ModuleList intitialised---");
 
             foreach (BaseModule module in ModuleList)
             {

@@ -17,7 +17,7 @@ namespace SteamBotLite
         public BaseModule(ModuleHandler bot, Dictionary<string, Dictionary<string, object>> Config)
         {
             string ThisObject = this.GetType().Name.ToString();
-            Console.WriteLine(ThisObject);
+            Console.WriteLine("Loading module {0}",ThisObject);
             this.config = Config[ThisObject];
             LoadDependencies(bot);
             bot.AddModuleToCurrentModules(this);

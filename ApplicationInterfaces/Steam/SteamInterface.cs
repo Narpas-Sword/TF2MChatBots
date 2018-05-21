@@ -66,8 +66,21 @@ namespace SteamBotLite
 
         public SteamInterface()
         {
-            string user = config["username"].ToString();
-            string pass = config["password"].ToString();
+            if (config["username"].ToString().Equals("<manual>")) //Checks to see if the username listed in SteamAccountVBot.json is listed as "<manual>"
+            {
+                Console.WriteLine("Username in SteamAccountVBot.json set to <manual> for manual login;");
+                Console.Write("-> Please enter the username of the account you want to log in to: ");
+                user = Console.ReadLine(); //Reads the user's input and sets that to the Steam username
+            }
+            else { user = config["username"].ToString(); } //If the username is not <manual>, sets the username as that listed in SteamAccountVBot.json
+            if (config["password"].ToString().Equals("<manual>")) //Checks to see if the password listed in SteamAccountVBot.json is listed as "<manual>"
+            {
+                Console.WriteLine("Password in SteamAccountVBot.json set to <manual> for manual login;");
+                Console.Write("-> Please enter the password of the account you want to log in to: ");
+                pass = Console.ReadLine(); //Reads the user's input and sets that to the Steam password
+            }
+            else { pass = config["password"].ToString(); } //If the password is not <manual>, sets the password as that listed in SteamAccountVBot.json
+
             bool shouldrememberpass = (bool)config["ShouldRememberPassword"];
             SteamBotData SteamBotLoginData = new SteamBotData(user, pass, shouldrememberpass);
 
@@ -407,18 +420,18 @@ namespace SteamBotLite
 
                     if (is2FA) //Check if 2FA is what stopped us
                     {
-                        Console.Write("Please enter your 2 factor auth code from your authenticator app: ");
+                        Console.Write("-> Please enter your 2 factor auth code from your authenticator app: ");
                         LoginData.TwoFactorCode = Console.ReadLine(); //The user types the code they received and we set it for the next login attempt
                     }
                     else
                     {
-                        Console.Write("Please enter the auth code sent to the email at {0}: ", callback.EmailDomain);
+                        Console.Write("-> Please enter the auth code sent to the email at {0}: ", callback.EmailDomain);
                         LoginData.AuthCode = Console.ReadLine(); //The user types the code they received and we set it for the next login attempt
                     }
 
                     return; //We return, which will lead to the ConnectionHandler attempting another login
                 }
-                else //If we didn't login but because of steamguard
+                else //If we didn't login but not because of steamguard
                 {
                     Console.WriteLine("Unable to logon to Steam: {0} / {1}", callback.Result, callback.ExtendedResult); //Tell the error
                     Console.WriteLine("{0} {1} This error is more indicative of an incorrect username + password or perhaps an invalid login key", ID, LoginData.Username); //Warn the user
